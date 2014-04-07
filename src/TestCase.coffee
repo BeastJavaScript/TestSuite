@@ -3,10 +3,7 @@
   It was built using CoffeeScript.
 
   You must keep this header in all copy of this Source Code.
-  The code is free to use, Personal and Commercial refer to {http://opensource.org/licenses/cpal_1.0}
-
   @author Shavauhn Gabay
-  @license http://opensource.org/licenses/cpal_1.0
 ###
 class TestCase
 
