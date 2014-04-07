@@ -1,0 +1,1 @@
+coffee -cwbm -o bin -j bin/beast.testsuite.js src/TestResult.coffee src/TestCase.coffee &
