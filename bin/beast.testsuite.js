@@ -69,11 +69,16 @@ TestResult = (function() {
  */
 
 TestCase = (function() {
+  var ready;
+
+  ready = false;
+
 
   /*
     @param auto [Boolean] if set to false test will not automatically run. Test can be run with the {TestCase#run} method
     @return [TestCase]
    */
+
   function TestCase(auto) {
     this.auto = auto != null ? auto : true;
     TestCase.count++;
@@ -92,7 +97,7 @@ TestCase = (function() {
    */
 
   TestCase.prototype.prepare = function() {
-    var property, ready, _results;
+    var property, _results;
     for (property in this) {
       if (property === "base") {
         ready = true;
@@ -474,3 +479,5 @@ TestCase = (function() {
   return TestCase;
 
 })();
+
+//# sourceMappingURL=beast.testsuite.map

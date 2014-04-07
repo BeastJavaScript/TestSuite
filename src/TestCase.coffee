@@ -6,7 +6,7 @@
   @author Shavauhn Gabay
 ###
 class TestCase
-
+  ready=false
   ###
     @param auto [Boolean] if set to false test will not automatically run. Test can be run with the {TestCase#run} method
     @return [TestCase]
