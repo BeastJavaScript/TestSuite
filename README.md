@@ -28,7 +28,7 @@ Inorder to create a new Test class just extend the TestCase class
         }
 
 
-If you want to pass multiple items then you can  please them in an array
+If you want to pass multiple items then you can pass them in an array
 
 
     #coffeescript
