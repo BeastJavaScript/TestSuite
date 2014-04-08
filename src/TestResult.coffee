@@ -34,3 +34,7 @@ class TestResult
   @property [Integer] The position of the assert Function for the specific method being tested
   ###
   position:null
+
+
+if exports
+  module.exports.TestResult=TestResult

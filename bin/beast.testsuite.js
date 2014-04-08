@@ -59,6 +59,10 @@ TestResult = (function() {
 
 })();
 
+if (exports) {
+  module.exports.TestResult = TestResult;
+}
+
 
 /*
   This class provides an extremely readable testing framework for testing with CoffeeScript and Javascript in General.
@@ -151,7 +155,7 @@ TestCase = (function() {
         } catch (_error) {
           e = _error;
           TestCase.result.push(new TestResult(TestCase.currentClassName, TestCase.currentName, "Exception " + e.constructor.name + ": " + e.message, TestCase.failed, TestCase.testAssert++));
-          break;
+          continue;
         }
       }
     }
@@ -186,7 +190,7 @@ TestCase = (function() {
 
   TestCase.prototype.assertEquals = function(test, value) {
     if (test instanceof Array && value instanceof Array) {
-      return this.assertArrayEquals(test, value);
+      return this.assertObjectEquals(test, value);
     }
     if (test instanceof Object && value instanceof Object) {
       return this.assertObjectEquals(test, value);
@@ -257,27 +261,24 @@ TestCase = (function() {
    */
 
   TestCase.prototype.assertObjectEquals = function(obj1, obj2) {
-    var e, key, result, value;
-    for (key in obj1) {
-      value = obj1[key];
-      try {
-        result = this.deepObjectCompare(obj1, obj2);
-        if (!result) {
-          TestCase.result.push(new TestResult(TestCase.currentClassName, TestCase.currentName, "failed to assert property[" + key + "] is equal, \"" + obj1[key] + "\" not \"" + obj2[key] + "\"", TestCase.failed, TestCase.testAssert++));
-          return;
-        }
-      } catch (_error) {
-        e = _error;
-        if (e instanceof RangeError) {
-          console.log(e);
-          TestCase.result.push(new TestResult(TestCase.currentClassName, TestCase.currentName, "Warning - Object has recursize properties, may or may not be equal ", TestCase.warning, TestCase.testAssert));
-          return true;
-        } else {
-          throw e;
-        }
+    var e, result;
+    try {
+      result = this.deepObjectCompare(obj1, obj2);
+    } catch (_error) {
+      e = _error;
+      if (e instanceof RangeError) {
+        TestCase.result.push(new TestResult(TestCase.currentClassName, TestCase.currentName, "Warning - Object may have circular reference, may or may not be equal", TestCase.warning, TestCase.testAssert++));
+        return;
+      } else {
+        TestCase.result.push(new TestResult(TestCase.currentClassName, TestCase.currentName, e.message, TestCase.failed, TestCase.testAssert++));
+        return;
       }
     }
-    return TestCase.result.push(new TestResult(TestCase.currentClassName, TestCase.currentName, "passed", TestCase.passed, TestCase.testAssert++));
+    if (!result.passed) {
+      TestCase.result.push(new TestResult(TestCase.currentClassName, TestCase.currentName, "failed to assert property[" + result.key + "] is equal, \"" + result.value.test + "\" not \"" + result.value.value + "\"", TestCase.failed, TestCase.testAssert++));
+    } else {
+      TestCase.result.push(new TestResult(TestCase.currentClassName, TestCase.currentName, "passed", TestCase.passed, TestCase.testAssert++));
+    }
   };
 
 
@@ -286,21 +287,31 @@ TestCase = (function() {
    */
 
   TestCase.prototype.deepObjectCompare = function(test, value) {
-    var key;
+    var key, result;
+    result = {};
     for (key in test) {
+      result.key = key;
+      result.value = {
+        "test": test[key],
+        "value": value[key]
+      };
       if (typeof test[key] === "object" && typeof value[key] === "object") {
         if (!this.deepObjectCompare(test[key], value[key])) {
-          return false;
+          result.passed = false;
+          return result;
         }
       } else if (typeof test[key] === "object" && typeof value[key] === "object") {
         if (!this.deepObjectCompare(test[key], value[key])) {
-          return false;
+          result.passed = false;
+          return result;
         }
       } else if (test[key] !== value[key]) {
-        return false;
+        result.passed = false;
+        return result;
       }
     }
-    return true;
+    result.passed = true;
+    return result;
   };
 
 
@@ -470,14 +481,18 @@ TestCase = (function() {
     if (result.result === TestCase.passed) {
       return "";
     } else if (result.result === TestCase.warning) {
-      return "" + result["class"] + "@" + result.name + nl + tab + result.message + ", on yay me assert # " + result.position + nl + nl;
+      return "" + result["class"] + "@" + result.name + nl + tab + result.message + ", on assert # " + result.position + nl + nl;
     } else if (result.result === TestCase.failed) {
-      return "" + result["class"] + "@" + result.name + nl + tab + result.message + ", on yay me assert # " + result.position + nl + nl;
+      return "" + result["class"] + "@" + result.name + nl + tab + result.message + ", on assert # " + result.position + nl + nl;
     }
   };
 
   return TestCase;
 
 })();
+
+if (exports) {
+  module.exports.TestCase = TestCase;
+}
 
 //# sourceMappingURL=beast.testsuite.map

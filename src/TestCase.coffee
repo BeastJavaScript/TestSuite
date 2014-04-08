@@ -61,7 +61,7 @@ class TestCase
             @[property].call(@,@base())
         catch e
           TestCase.result.push new TestResult(TestCase.currentClassName,TestCase.currentName,"Exception #{e.constructor.name}: #{e.message}",TestCase.failed,TestCase.testAssert++)
-          break;
+          continue
 
     TestCase.end_t=Date.now()
 
@@ -87,7 +87,7 @@ class TestCase
   ###
   assertEquals:(test,value)->
     if test instanceof Array and value instanceof Array
-      return @assertArrayEquals(test,value)
+      return @assertObjectEquals(test,value)
 
     if test instanceof Object and value instanceof Object
       return @assertObjectEquals(test,value)
@@ -140,35 +140,45 @@ class TestCase
     @param obj2 [Object]
   ###
   assertObjectEquals:(obj1,obj2)->
-    for key,value of obj1
-      try
-        result=@deepObjectCompare(obj1,obj2)
-        unless result
-          TestCase.result.push new TestResult(TestCase.currentClassName,TestCase.currentName,"failed to assert property[#{key}] is equal, \"#{obj1[key]}\" not \"#{obj2[key]}\"",TestCase.failed,TestCase.testAssert++)
-          return
-      catch e
-        if e instanceof RangeError
-          console.log e
-          TestCase.result.push new TestResult(TestCase.currentClassName,TestCase.currentName,"Warning - Object has recursize properties, may or may not be equal ",TestCase.warning,TestCase.testAssert)
-          return true
-        else throw e
+    try
+      result=@deepObjectCompare(obj1,obj2)
+    catch e
+      if e instanceof RangeError
+        TestCase.result.push new TestResult(TestCase.currentClassName,TestCase.currentName,"Warning - Object may have circular reference, may or may not be equal",TestCase.warning,TestCase.testAssert++)
+        return
+      else
+        TestCase.result.push new TestResult(TestCase.currentClassName,TestCase.currentName,e.message,TestCase.failed,TestCase.testAssert++)
+        return
+    unless result.passed
+      TestCase.result.push new TestResult(TestCase.currentClassName,TestCase.currentName,"failed to assert property[#{result.key}] is equal, \"#{result.value.test}\" not \"#{result.value.value}\"",TestCase.failed,TestCase.testAssert++)
+      return
+    else
+      TestCase.result.push new TestResult(TestCase.currentClassName,TestCase.currentName,"passed",TestCase.passed,TestCase.testAssert++)
+      return
 
-    TestCase.result.push new TestResult(TestCase.currentClassName,TestCase.currentName,"passed",TestCase.passed,TestCase.testAssert++)
+
 
   ###
     @nodoc
   ###
   deepObjectCompare:(test,value)->
+    result={};
     for key of test
+      result.key=key
+      result.value={"test":test[key],"value":value[key]}
       if typeof test[key] is "object" and typeof value[key] is "object"
         unless @deepObjectCompare(test[key],value[key])
-          return false
+          result.passed=false
+          return result
       else if typeof test[key] is "object" and typeof value[key] is "object"
         unless @deepObjectCompare(test[key],value[key])
-          return false
+          result.passed=false
+          return result
       else unless test[key] is value[key]
-        return false
-    return true
+        result.passed=false
+        return result
+    result.passed=true
+    return result
 
   ###
     This will check if two objects are the same objects. It will also test if two primitives are equal.
@@ -259,6 +269,7 @@ class TestCase
   ###
   @tab="\t"
 
+
   ###
     This will contain all of the results, after a test has been run
   ###
@@ -298,7 +309,10 @@ class TestCase
     if result.result is TestCase.passed
       return ""
     else if result.result is TestCase.warning
-      return "#{result.class}@#{result.name}#{nl}#{tab}#{result.message}, on yay me assert # #{result.position}#{nl}#{nl}"
+      return "#{result.class}@#{result.name}#{nl}#{tab}#{result.message}, on assert # #{result.position}#{nl}#{nl}"
     else if result.result is TestCase.failed
-      return "#{result.class}@#{result.name}#{nl}#{tab}#{result.message}, on yay me assert # #{result.position}#{nl}#{nl}"
+      return "#{result.class}@#{result.name}#{nl}#{tab}#{result.message}, on assert # #{result.position}#{nl}#{nl}"
 
+
+if exports
+  module.exports.TestCase=TestCase
