@@ -27,7 +27,7 @@ class Person
 
 
 
-new class ObjectTest extends TestCase
+new (class ObjectTest extends TestCase
   constructor:()->
     super()
 
@@ -40,5 +40,5 @@ new class ObjectTest extends TestCase
 
     p2.age=26
     @assertEquals(p1,p2)
-
+)
 console.log ts.TestCase.getResult()

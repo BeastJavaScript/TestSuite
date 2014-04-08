@@ -314,5 +314,5 @@ class TestCase
       return "#{result.class}@#{result.name}#{nl}#{tab}#{result.message}, on assert # #{result.position}#{nl}#{nl}"
 
 
-if exports
+if typeof module.exports isnt "undefined"
   module.exports.TestCase=TestCase

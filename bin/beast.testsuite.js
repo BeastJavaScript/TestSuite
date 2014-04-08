@@ -59,7 +59,7 @@ TestResult = (function() {
 
 })();
 
-if (exports) {
+if (typeof module.exports !== "undefined") {
   module.exports.TestResult = TestResult;
 }
 
@@ -491,7 +491,7 @@ TestCase = (function() {
 
 })();
 
-if (exports) {
+if (typeof module.exports !== "undefined") {
   module.exports.TestCase = TestCase;
 }
 
