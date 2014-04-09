@@ -1,7 +1,9 @@
 Beast Javascript TestSuite
 --------------------------
 
-###### create by shavauhn gabay
+[!alt Beast Javascript Logo](http://beastjavascript.github.io/TestSuite/images/Beast.png)
+
+###### create by Shavauhn Gabay
 
 <br>
 
