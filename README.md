@@ -76,4 +76,4 @@ To defined a test method it is rather easy just name it test_____________ and fi
       testGiveMeBase:(someItem,obj)
         @assertEquals(someItem,"hello") #true
 
-from here on out you can check the [API](http://beastjavascript.github.io/TestSuite/doc/) and the Youtube video for more instructions
+from here on out you can check the [API](http://beastjavascript.github.io/TestSuite/doc/) and the [Youtube](http://youtu.be/npgqeC_FyXM) video for more instructions
