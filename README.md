@@ -1,7 +1,7 @@
 Beast Javascript TestSuite
 --------------------------
 
-[!alt Beast Javascript Logo](http://beastjavascript.github.io/TestSuite/images/Beast.png)
+![alt Beast Javascript Logo](http://beastjavascript.github.io/TestSuite/images/Beast.png)
 
 ###### create by Shavauhn Gabay
 
