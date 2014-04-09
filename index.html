@@ -1,125 +1,154 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Testsuite by BeastJavaScript</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/custom.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/respond.js"></script>
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!--[if lt IE 8]>
     <link rel="stylesheet" href="stylesheets/ie.css">
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  </head>
-  <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/BeastJavaScript/TestSuite">View On GitHub</a></li>
-          <li class="downloads"><a href="doc">API</a></li>
-          <li class="downloads"><a href="https://github.com/BeastJavaScript/TestSuite/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/BeastJavaScript/TestSuite/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+</head>
+<body>
+<div id="header">
+    <nav>
+        <li class="fork"><a href="https://github.com/BeastJavaScript/TestSuite">View On GitHub</a></li>
+        <li class="downloads"><a href="doc">API</a></li>
+        <li class="downloads"><a href="https://github.com/BeastJavaScript/TestSuite/zipball/master">ZIP</a></li>
+        <li class="downloads"><a href="https://github.com/BeastJavaScript/TestSuite/tarball/master">TAR</a></li>
+        <li class="title">DOWNLOADS</li>
+    </nav>
+</div>
+<!-- end header -->
 
-    <div class="wrapper">
+<div class="wrapper">
 
-      <section>
+    <section>
         <div id="title">
-          <h1>Testsuite</h1>
-          <p>A Testing Framework for CoffeeScript / JavaScript</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/BeastJavaScript">BeastJavaScript</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+            <h1>TestSuite</h1>
+
+            <p>A Testing Framework for CoffeeScript / JavaScript</p>
+            <hr>
+            <span class="credits left">Project maintained by <a href="https://github.com/BeastJavaScript">BeastJavaScript</a></span>
+
         </div>
 
         <h2>
-<a name="beast-javascript-testsuite" class="anchor" href="#beast-javascript-testsuite"><span class="octicon octicon-link"></span></a>Beast Javascript TestSuite</h2>
+            <img src="images/Beast.png" alt=""/>
+            <br/>
+            <a name="beast-javascript-testsuite" class="anchor" href="#beast-javascript-testsuite"><span
+                    class="octicon octicon-link"></span></a>Beast JavaScript TestSuite</h2>
 
-<h6>
-<a name="create-by-shavauhn-gabay" class="anchor" href="#create-by-shavauhn-gabay"><span class="octicon octicon-link"></span></a>create by shavauhn gabay</h6>
+        <h6>
+            <a name="create-by-shavauhn-gabay" class="anchor" href="#create-by-shavauhn-gabay"><span
+                    class="octicon octicon-link"></span></a>create by BeastJavaScript</h6>
 
-<p><br></p>
 
-<p>This framework was create to bring a more elegant syntax to Unit Testing in CoffeeScript / Javascript. The aim was to get the code as readible as possible but still allow users to create testcase rapidly and test their application.</p>
 
-<h4>
-<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h4>
 
-<p>Inorder to create a new Test class just extend the TestCase class</p>
+        <!--Custom Social Belt-->
+        <div class="social">
+            <div class="twitter">
+                <a href="https://twitter.com/BeastJavaScript" class="twitter-follow-button" data-show-count="false">Follow @BeastJavaScript</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+                <a href="https://twitter.com/intent/tweet?button_hashtag=BeastJavaScript&text=Hey%20I%20just%20Checked%20out%20BeastJavascript%20TestSuite%20for%20CoffeeScript" class="twitter-hashtag-button" data-related="BeastJavaScript" data-url="http://beastjavascript.github.io/TestSuite/">Tweet #BeastJavaScript</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </div>
+        </div>
+
+
+
+        <!--end of custome social belt-->
+
+        <p>This framework was create to bring a more elegant syntax to Unit Testing in CoffeeScript / Javascript. The
+            aim was to get the code as readible as possible but still allow users to create testcase rapidly and test
+            their application.</p>
+
+        <h4>
+            <a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples
+        </h4>
+
+        <p>Inorder to create a new Test class just extend the TestCase class</p>
 
 <pre><code>#coffeescript
 
-MyTest extends TestCase
+    MyTest extends TestCase
 
-  constructor:-&gt;
-    super()     #the super must be called
+    constructor:-&gt;
+    super() #the super must be called
 
 
-#base object that is passed to every test method
-  base:-&gt;
+    #base object that is passed to every test method
+    base:-&gt;
     {
-      fname:"Shavauhn"
-      lname:"Gabay"
+    fname:"Shavauhn"
+    lname:"Gabay"
     }
 </code></pre>
 
-<p>If you want to pass multiple items then you can pass them in an array</p>
+        <p>If you want to pass multiple items then you can pass them in an array</p>
 
 <pre><code>#coffeescript
 
-MyTest extends TestCase
+    MyTest extends TestCase
 
-  constructor:-&gt;
-    super()     #the super must be called
+    constructor:-&gt;
+    super() #the super must be called
 
 
-#This will pass two items to the test methods
-  base:-&gt;
+    #This will pass two items to the test methods
+    base:-&gt;
     someItem="hello"
     obj = {
-      fname:"Shavauhn"
-      lname:"Gabay"
+    fname:"Shavauhn"
+    lname:"Gabay"
     }
 
     return [someItem,obj]
 </code></pre>
 
-<p>To defined a test method it is rather easy just name it test_____________ and fill it with what ever name you want.</p>
+        <p>To defined a test method it is rather easy just name it test_____________ and fill it with what ever name you
+            want.</p>
 
-<pre><code>    #coffeescript
+<pre><code> #coffeescript
 
-MyTest extends TestCase
+    MyTest extends TestCase
 
-  constructor:-&gt;
-    super()     #the super must be called
+    constructor:-&gt;
+    super() #the super must be called
 
 
-#base object that is passed to every test method
-  base:-&gt;
+    #base object that is passed to every test method
+    base:-&gt;
     someItem="hello"
     obj = {
-      fname:"Shavauhn"
-      lname:"Gabay"
+    fname:"Shavauhn"
+    lname:"Gabay"
     }
 
     return [someItem,obj]
 
-  testGiveMeBase:(someItem,obj)
+    testGiveMeBase:(someItem,obj)
     @assertEquals(someItem,"hello") #true
 </code></pre>
 
-<p>from here on out you can check the <a href="doc">API</a> and the youtube video for more instruction</p>
-      </section>
+        <p>from here on out you can check the <a href="doc">API</a> and the <a href="http://youtu.be/npgqeC_FyXM">Youtube
+            video</a> for more instruction</p>
+    </section>
 
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+</div>
+<!--[if !IE]>
+<script>fixScale(document);</script><![endif]-->
 
-  </body>
+</body>
 </html>
