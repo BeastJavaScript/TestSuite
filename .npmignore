@@ -4,3 +4,4 @@ src
 doc
 *.sh
 **/*.sh
+node_modules

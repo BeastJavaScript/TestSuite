@@ -59,8 +59,10 @@ TestResult = (function() {
 
 })();
 
-if (typeof module.exports !== "undefined") {
-  module.exports.TestResult = TestResult;
+if (typeof module !== "undefined") {
+  if (typeof module.exports !== "undefined") {
+    module.exports.TestResult = TestResult;
+  }
 }
 
 
@@ -491,8 +493,10 @@ TestCase = (function() {
 
 })();
 
-if (typeof module.exports !== "undefined") {
-  module.exports.TestCase = TestCase;
+if (typeof module !== "undefined") {
+  if (typeof module.exports !== "undefined") {
+    module.exports.TestCase = TestCase;
+  }
 }
 
 //# sourceMappingURL=beast.testsuite.map
