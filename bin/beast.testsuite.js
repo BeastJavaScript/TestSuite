@@ -192,7 +192,7 @@ TestCase = (function() {
 
   TestCase.prototype.assertEquals = function(test, value) {
     if (test instanceof Array && value instanceof Array) {
-      return this.assertObjectEquals(test, value);
+      return this.assertArrayEquals(test, value);
     }
     if (test instanceof Object && value instanceof Object) {
       return this.assertObjectEquals(test, value);
@@ -298,6 +298,7 @@ TestCase = (function() {
         "value": value[key]
       };
       if (typeof test[key] === "object" && typeof value[key] === "object") {
+        console.log("made it here");
         if (!this.deepObjectCompare(test[key], value[key])) {
           result.passed = false;
           return result;

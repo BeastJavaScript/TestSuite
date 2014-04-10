@@ -87,7 +87,7 @@ class TestCase
   ###
   assertEquals:(test,value)->
     if test instanceof Array and value instanceof Array
-      return @assertObjectEquals(test,value)
+      return @assertArrayEquals(test,value)
 
     if test instanceof Object and value instanceof Object
       return @assertObjectEquals(test,value)
@@ -167,6 +167,7 @@ class TestCase
       result.key=key
       result.value={"test":test[key],"value":value[key]}
       if typeof test[key] is "object" and typeof value[key] is "object"
+        console.log "made it here"
         unless @deepObjectCompare(test[key],value[key])
           result.passed=false
           return result

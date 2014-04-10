@@ -23,11 +23,11 @@
     };
 
     ArrayTest.prototype.testEquals = function(one, two) {
-      this.assertEquals(one, two);
-      return this.assertEquals(new slkdfsldfkj, two);
+      return this.assertEquals(one, two);
     };
 
     ArrayTest.prototype.testObject = function(one, two) {
+      this.assertObjectEquals(one, two);
       return this.assertObjectEquals(one, two);
     };
 
@@ -58,8 +58,18 @@
 
     ObjectTest.prototype.testObject = function(p1, p2) {
       this.assertEquals(p1, p2);
-      p2.age = 26;
+      p2.age = 25;
       return this.assertEquals(p1, p2);
+    };
+
+    ObjectTest.prototype.testLiteral = function() {
+      return this.assertEquals({
+        "name": "tom",
+        age: 25
+      }, {
+        "name": "tom",
+        age: 25
+      });
     };
 
     return ObjectTest;

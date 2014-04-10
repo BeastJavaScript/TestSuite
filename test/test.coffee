@@ -15,9 +15,9 @@ new (class ArrayTest extends TestCase
 
   testEquals:(one,two)->
     @assertEquals(one,two)
-    @assertEquals(new slkdfsldfkj,two)
 
   testObject:(one,two)->
+    @assertObjectEquals(one,two)
     @assertObjectEquals(one,two)
 )
 
@@ -38,7 +38,10 @@ new (class ObjectTest extends TestCase
   testObject:(p1,p2)->
     @assertEquals(p1,p2)
 
-    p2.age=26
+    p2.age=25
     @assertEquals(p1,p2)
+
+  testLiteral:()->
+    @assertEquals({"name":"tom",age:25},{"name":"tom",age:25})
 )
 console.log ts.TestCase.getResult()
