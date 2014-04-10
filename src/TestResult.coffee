@@ -35,6 +35,6 @@ class TestResult
   ###
   position:null
 
-
-if typeof module.exports isnt "undefined"
-  module.exports.TestResult=TestResult
+if typeof module isnt "undefined"
+  if typeof module.exports isnt "undefined"
+    module.exports.TestResult=TestResult

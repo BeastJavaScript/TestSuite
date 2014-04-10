@@ -313,6 +313,6 @@ class TestCase
     else if result.result is TestCase.failed
       return "#{result.class}@#{result.name}#{nl}#{tab}#{result.message}, on assert # #{result.position}#{nl}#{nl}"
 
-
-if typeof module.exports isnt "undefined"
-  module.exports.TestCase=TestCase
+if typeof module isnt "undefined"
+  if typeof module.exports isnt "undefined"
+    module.exports.TestCase=TestCase
