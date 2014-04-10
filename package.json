@@ -1,10 +1,17 @@
 {
-    "name": "beast-test",
-    "version": "0.0.1",
-    "description": "A package that allow for JUnit like TestCases. Very Robust Test Driven Development Framework",
-    "author": "Shavauhn Gabay <shavyg2@gmail.com>",
-    "keywords":["TDD","JUnit","Beast","BeastJavaScript","TestCase","Test Driven Development"],
-    "homepage":"http://beastjavascript.github.io/TestSuite/",
-    "license":"MIT",
-    "main":"bin/beast.testsuite.min.js"
+  "name": "beast-test",
+  "version": "0.0.2",
+  "description": "A package that allow for JUnit like TestCases. Very Robust Test Driven Development Framework",
+  "author": "Shavauhn Gabay <shavyg2@gmail.com>",
+  "keywords": [
+    "TDD",
+    "JUnit",
+    "Beast",
+    "BeastJavaScript",
+    "TestCase",
+    "Test Driven Development"
+  ],
+  "homepage": "http://beastjavascript.github.io/TestSuite/",
+  "license": "MIT",
+  "main": "bin/beast.testsuite.min.js"
 }
