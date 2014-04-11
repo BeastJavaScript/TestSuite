@@ -175,11 +175,11 @@ class TestCase
       result.key=key
       result.value={"test":test[key],"value":value[key]}
       if typeof test[key] is "object" and typeof value[key] is "object"
-        unless @deepObjectCompare(test[key],value[key])
+        unless @deepObjectCompare(test[key],value[key]).passed
           result.passed=false
           return result
       else if typeof test[key] is "object" and typeof value[key] is "object"
-        unless @deepObjectCompare(test[key],value[key])
+        unless @deepObjectCompare(test[key],value[key]).passed
           result.passed=false
           return result
       else unless test[key] is value[key]

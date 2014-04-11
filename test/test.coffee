@@ -53,7 +53,7 @@ new (class ArrayTest2 extends TestCase
     super()
 
   base:->
-    array=[1,[1,2,3],3]
+    array=[1,[3,2,3],3]
     array2=[1,[1,2,3],3]
     [array,array2]
 

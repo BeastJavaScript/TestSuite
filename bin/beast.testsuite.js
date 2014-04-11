@@ -305,12 +305,12 @@ TestCase = (function() {
         "value": value[key]
       };
       if (typeof test[key] === "object" && typeof value[key] === "object") {
-        if (!this.deepObjectCompare(test[key], value[key])) {
+        if (!this.deepObjectCompare(test[key], value[key]).passed) {
           result.passed = false;
           return result;
         }
       } else if (typeof test[key] === "object" && typeof value[key] === "object") {
-        if (!this.deepObjectCompare(test[key], value[key])) {
+        if (!this.deepObjectCompare(test[key], value[key]).passed) {
           result.passed = false;
           return result;
         }
