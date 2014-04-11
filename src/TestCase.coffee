@@ -163,11 +163,18 @@ class TestCase
   ###
   deepObjectCompare:(test,value)->
     result={};
+    cmp=[]
     for key of test
+      cmp[key]=key
+    for key of value
+      cmp[key]=key
+
+
+
+    for key of cmp
       result.key=key
       result.value={"test":test[key],"value":value[key]}
       if typeof test[key] is "object" and typeof value[key] is "object"
-        console.log "made it here"
         unless @deepObjectCompare(test[key],value[key])
           result.passed=false
           return result

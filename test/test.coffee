@@ -8,8 +8,9 @@ new (class ArrayTest extends TestCase
     super()
 
   base:->
-    ar1=[1,[1,2,3],3]
-    ar2=[1,[1,2,3],3]
+    ar0=[1,2,3]
+    ar1=[1,ar0,3]
+    ar2=[1,ar0,3]
     [ar1,ar2]
 
 
@@ -44,4 +45,23 @@ new (class ObjectTest extends TestCase
   testLiteral:()->
     @assertEquals({"name":"tom",age:25},{"name":"tom",age:25})
 )
+
+
+
+new (class ArrayTest2 extends TestCase
+  constructor:()->
+    super()
+
+  base:->
+    array=[1,[1,2,3],3]
+    array2=[1,[1,2,3],3]
+    [array,array2]
+
+
+
+  testArray:(p1,p2)->
+    @assertObjectEquals(p1,p2)
+)
+
+
 console.log ts.TestCase.getResult()

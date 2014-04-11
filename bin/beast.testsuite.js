@@ -289,16 +289,22 @@ TestCase = (function() {
    */
 
   TestCase.prototype.deepObjectCompare = function(test, value) {
-    var key, result;
+    var cmp, key, result;
     result = {};
+    cmp = [];
     for (key in test) {
+      cmp[key] = key;
+    }
+    for (key in value) {
+      cmp[key] = key;
+    }
+    for (key in cmp) {
       result.key = key;
       result.value = {
         "test": test[key],
         "value": value[key]
       };
       if (typeof test[key] === "object" && typeof value[key] === "object") {
-        console.log("made it here");
         if (!this.deepObjectCompare(test[key], value[key])) {
           result.passed = false;
           return result;
