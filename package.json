@@ -19,6 +19,6 @@
   "homepage": "http://beastjavascript.github.io/TestSuite/",
   "license": "MIT",
   "scripts": {
-    "prepublish": "uglifyjs --source-map bin/beast.testsuite.min.map bin/beast.testsuite.js > beast.testsuite.min.js"
+    "prepublish": "uglifyjs -o bin/beast.testsuite.min.js --source-map bin/beast.testsuite.min.map bin/beast.testsuite.js"
   }
 }
