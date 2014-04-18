@@ -19,8 +19,5 @@
     "coffee-script":"*",
     "uglify.js":"2.*",
     "codo":"2.*"
-  },
-  "scripts":{
-      "prepublish":"release.sh"
   }
 }

@@ -9,3 +9,6 @@ node node_modules/uglifyjs/index.js --source-map bin/beast.testsuite.min.map bin
 
 #Generate documentation
 node_modules/codo/bin/codo -o ./doc src/
+
+git add --all
+git commit -am"automatic package and build from release.sh"
