@@ -1,6 +1,6 @@
 {
   "name": "beast-test",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A package that allow for JUnit like TestCases. Very Robust Test Driven Development Framework",
   "author": "Shavauhn Gabay <shavyg2@gmail.com>",
   "keywords": [
