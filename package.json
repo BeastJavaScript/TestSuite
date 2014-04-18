@@ -13,5 +13,14 @@
   ],
   "homepage": "http://beastjavascript.github.io/TestSuite/",
   "license": "MIT",
-  "main": "bin/beast.testsuite.min.js"
+  "main": "bin/beast.testsuite.min.js",
+  "devDependencies":{
+    "coffee-stir":"*",
+    "coffee-script":"*",
+    "uglify.js":"2.*",
+    "codo":"2.*"
+  },
+  "scripts":{
+      "prepublish":"release.sh"
+  }
 }

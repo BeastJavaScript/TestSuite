@@ -1,1 +1,2 @@
-coffee -wc test.coffee &
+cd $(dirname $0)
+

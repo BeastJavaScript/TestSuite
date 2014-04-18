@@ -1,1 +1,0 @@
-node ../node_modules/uglifyjs/index.js --source-map beast.testsuite.min.map beast.testsuite.js > beast.testsuite.min.js

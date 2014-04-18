@@ -32,6 +32,12 @@
           <td>Defined in:</td>
           <td>src\TestCase.coffee</td>
         </tr>
+        <tr>
+          <td>Inherits:</td>
+          <td>
+            <a href='../class/TestComponent.html'>TestComponent</a>
+          </td>
+        </tr>
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
@@ -186,115 +192,31 @@ It was built using CoffeeScript.</p><p>You must keep this header in all copy of 
       This method is used to run the Test. 
     </span>
   </li>
-  <li>
-    <span class='signature'>
-      <a href='#assertTrue-dynamic'>
-        #
-(void)
-<b>assertTrue</b><span>(value)</span>
-      </a>
-    </span>
-    <span class='desc'>
-      This method will test if the value is equal to true 
-    </span>
-  </li>
-  <li>
-    <span class='signature'>
-      <a href='#assertEquals-dynamic'>
-        #
-(void)
-<b>assertEquals</b><span>(test, value)</span>
-      </a>
-    </span>
-    <span class='desc'>
-      This will test if two values are equal. 
-    </span>
-  </li>
-  <li>
-    <span class='signature'>
-      <a href='#assertNotNull-dynamic'>
-        #
-(void)
-<b>assertNotNull</b><span>(value)</span>
-      </a>
-    </span>
-    <span class='desc'>
-      This will test if an Object is not null 
-    </span>
-  </li>
-  <li>
-    <span class='signature'>
-      <a href='#assertNull-dynamic'>
-        #
-(void)
-<b>assertNull</b><span>(value)</span>
-      </a>
-    </span>
-    <span class='desc'>
-      This will test if a value is null 
-    </span>
-  </li>
-  <li>
-    <span class='signature'>
-      <a href='#assertArrayEquals-dynamic'>
-        #
-(void)
-<b>assertArrayEquals</b><span>(array1, array2)</span>
-      </a>
-    </span>
-    <span class='desc'>
-      This will test if two arrays are equal. 
-    </span>
-  </li>
-  <li>
-    <span class='signature'>
-      <a href='#assertObjectEquals-dynamic'>
-        #
-(void)
-<b>assertObjectEquals</b><span>(obj1, obj2)</span>
-      </a>
-    </span>
-    <span class='desc'>
-      This is essential the same as <a href='../class/TestCase.html#assertEquals-dynamic'>TestCase#assertEquals</a>. 
-    </span>
-  </li>
-  <li>
-    <span class='signature'>
-      <a href='#assertSame-dynamic'>
-        #
-(void)
-<b>assertSame</b><span>(test, value)</span>
-      </a>
-    </span>
-    <span class='desc'>
-      This will check if two objects are the same objects. 
-    </span>
-  </li>
-  <li>
-    <span class='signature'>
-      <a href='#assertSimilar-dynamic'>
-        #
-(void)
-<b>assertSimilar</b><span>(test, value)</span>
-      </a>
-    </span>
-    <span class='desc'>
-      This will test if two values are similar. 
-    </span>
-  </li>
-  <li>
-    <span class='signature'>
-      <a href='#assertFunction-dynamic'>
-        #
-(void)
-<b>assertFunction</b><span>(func)</span>
-      </a>
-    </span>
-    <span class='desc'>
-      This will check if a value is a function. 
-    </span>
-  </li>
 </ul>
+      <h2>
+        <small>Inherited Method Summary</small>
+        <h3 class='inherited'>
+          Methods inherited from
+          <a href='../class/TestComponent.html'>TestComponent</a>
+        </h3>
+        <p class='inherited'>
+          <a href='../class/TestComponent.html#_trueTest-dynamic'>#_trueTest</a>
+          <a href='../class/TestComponent.html#_same-dynamic'>#_same</a>
+          <a href='../class/TestComponent.html#_equals-dynamic'>#_equals</a>
+          <a href='../class/TestComponent.html#_arrayEquals-dynamic'>#_arrayEquals</a>
+          <a href='../class/TestComponent.html#_isFunction-dynamic'>#_isFunction</a>
+          <a href='../class/TestComponent.html#assertTrue-dynamic'>#assertTrue</a>
+          <a href='../class/TestComponent.html#assertNull-dynamic'>#assertNull</a>
+          <a href='../class/TestComponent.html#assertNotNull-dynamic'>#assertNotNull</a>
+          <a href='../class/TestComponent.html#assertEquals-dynamic'>#assertEquals</a>
+          <a href='../class/TestComponent.html#assertArrayEquals-dynamic'>#assertArrayEquals</a>
+          <a href='../class/TestComponent.html#assertFunction-dynamic'>#assertFunction</a>
+          <a href='../class/TestComponent.html#assertObjectEquals-dynamic'>#assertObjectEquals</a>
+          <a href='../class/TestComponent.html#assertSimilar-dynamic'>#assertSimilar</a>
+          <a href='../class/TestComponent.html#assertSame-dynamic'>#assertSame</a>
+          <a href='../class/TestComponent.html#stringObject-dynamic'>#stringObject</a>
+        </p>
+      </h2>
       <h2>Class Method Details</h2>
       <div class='methods'>
   <div class='method_details'>
@@ -430,281 +352,10 @@ It was built using CoffeeScript.</p><p>You must keep this header in all copy of 
 <div class='tags'>
 </div>
   </div>
-  <div class='method_details'>
-    <p class='signature' id='assertTrue-dynamic'>
-      #
-(void)
-<b>assertTrue</b><span>(value)</span>
-      <br>
-    </p>
-    <div class='docstring'>
-  <p>This method will test if the value is equal to true</p>
-</div>
-<div class='tags'>
-  <h3>Parameters:</h3>
-  <ul class='param'>
-    <li>
-      <span class='name'>value</span>
-      <span class='type'>
-        (
-          <tt>Boolean</tt>
-        )
-      </span>
-    </li>
-  </ul>
-</div>
-  </div>
-  <div class='method_details'>
-    <p class='signature' id='assertEquals-dynamic'>
-      #
-(void)
-<b>assertEquals</b><span>(test, value)</span>
-      <br>
-    </p>
-    <div class='docstring'>
-  <p>This will test if two values are equal.
-This will do a deep Object Comparison on Objects and Arrays.
-Be careful of Objects that might contain circular references.
-The Application will handle it just fine but it will result in a warning.
-These Object will not neccesarily be equal</p>
-</div>
-<div class='tags'>
-  <h3>Parameters:</h3>
-  <ul class='param'>
-    <li>
-      <span class='name'>test</span>
-      <span class='type'>
-        (
-          <tt>Object,String,Number,Boolean</tt>
-        )
-      </span>
-    </li>
-    <li>
-      <span class='name'>value</span>
-      <span class='type'>
-        (
-          <tt>Object,String,Number,Boolean</tt>
-        )
-      </span>
-    </li>
-  </ul>
-</div>
-  </div>
-  <div class='method_details'>
-    <p class='signature' id='assertNotNull-dynamic'>
-      #
-(void)
-<b>assertNotNull</b><span>(value)</span>
-      <br>
-    </p>
-    <div class='docstring'>
-  <p>This will test if an Object is not null</p>
-</div>
-<div class='tags'>
-  <h3>Parameters:</h3>
-  <ul class='param'>
-    <li>
-      <span class='name'>value</span>
-      <span class='type'>
-        (
-          <tt>Object,String,Number,Boolean</tt>
-        )
-      </span>
-    </li>
-  </ul>
-</div>
-  </div>
-  <div class='method_details'>
-    <p class='signature' id='assertNull-dynamic'>
-      #
-(void)
-<b>assertNull</b><span>(value)</span>
-      <br>
-    </p>
-    <div class='docstring'>
-  <p>This will test if a value is null</p>
-</div>
-<div class='tags'>
-  <h3>Parameters:</h3>
-  <ul class='param'>
-    <li>
-      <span class='name'>value</span>
-      <span class='type'>
-        (
-          <tt>Object,String,Number,Boolean</tt>
-        )
-      </span>
-    </li>
-  </ul>
-</div>
-  </div>
-  <div class='method_details'>
-    <p class='signature' id='assertArrayEquals-dynamic'>
-      #
-(void)
-<b>assertArrayEquals</b><span>(array1, array2)</span>
-      <br>
-    </p>
-    <div class='docstring'>
-  <p>This will test if two arrays are equal. This will not do a deep object test on the array. It will only check the first level of the array</p>
-</div>
-<div class='tags'>
-  <h3>Parameters:</h3>
-  <ul class='param'>
-    <li>
-      <span class='name'>array1</span>
-      <span class='type'>
-        (
-          <tt>Array</tt>
-        )
-      </span>
-    </li>
-    <li>
-      <span class='name'>array2</span>
-      <span class='type'>
-        (
-          <tt>Array</tt>
-        )
-      </span>
-    </li>
-  </ul>
-</div>
-  </div>
-  <div class='method_details'>
-    <p class='signature' id='assertObjectEquals-dynamic'>
-      #
-(void)
-<b>assertObjectEquals</b><span>(obj1, obj2)</span>
-      <br>
-    </p>
-    <div class='docstring'>
-  <p>This is essential the same as <a href='../class/TestCase.html#assertEquals-dynamic'>TestCase#assertEquals</a>.
-This is just a more reader friendly form that is better at documenting your intention.</p>
-</div>
-<div class='tags'>
-  <h3>Parameters:</h3>
-  <ul class='param'>
-    <li>
-      <span class='name'>obj1</span>
-      <span class='type'>
-        (
-          <tt>Object</tt>
-        )
-      </span>
-    </li>
-    <li>
-      <span class='name'>obj2</span>
-      <span class='type'>
-        (
-          <tt>Object</tt>
-        )
-      </span>
-    </li>
-  </ul>
-</div>
-  </div>
-  <div class='method_details'>
-    <p class='signature' id='assertSame-dynamic'>
-      #
-(void)
-<b>assertSame</b><span>(test, value)</span>
-      <br>
-    </p>
-    <div class='docstring'>
-  <p>This will check if two objects are the same objects. It will also test if two primitives are equal.</p>
-</div>
-<div class='tags'>
-  <h3>Parameters:</h3>
-  <ul class='param'>
-    <li>
-      <span class='name'>test</span>
-      <span class='type'>
-        (
-          <tt>Object,String,Number,Boolean</tt>
-        )
-      </span>
-    </li>
-    <li>
-      <span class='name'>value</span>
-      <span class='type'>
-        (
-          <tt>Object,String,Number,Boolean</tt>
-        )
-      </span>
-    </li>
-  </ul>
-</div>
-  </div>
-  <div class='method_details'>
-    <p class='signature' id='assertSimilar-dynamic'>
-      #
-(void)
-<b>assertSimilar</b><span>(test, value)</span>
-      <br>
-    </p>
-    <div class='docstring'>
-  <p>This will test if two values are similar. This is mainly for primitive values when comparing a string and a number.
-When used on a object it is essentially the same as <a href='../class/TestCase.html#assertSame-dynamic'>TestCase#assertSame</a>.
-This will also ignore casing when comparing strings</p>
-  <div class='examples'>
-    <h3>Examples:</h3>
-    <h4>
-      
-    </h4>
-    <pre><code class='coffeescript'>5==&#39;5&#39; #true
-&#39;PizzaMan&#39; == &#39;pizzaman&#39; #true</code></pre>
-  </div>
-</div>
-<div class='tags'>
-  <h3>Parameters:</h3>
-  <ul class='param'>
-    <li>
-      <span class='name'>test</span>
-      <span class='type'>
-        (
-          <tt>Object,String,Number,Boolean</tt>
-        )
-      </span>
-    </li>
-    <li>
-      <span class='name'>value</span>
-      <span class='type'>
-        (
-          <tt>Object,String,Number,Boolean</tt>
-        )
-      </span>
-    </li>
-  </ul>
-</div>
-  </div>
-  <div class='method_details'>
-    <p class='signature' id='assertFunction-dynamic'>
-      #
-(void)
-<b>assertFunction</b><span>(func)</span>
-      <br>
-    </p>
-    <div class='docstring'>
-  <p>This will check if a value is a function. This can be useful with callbacks testing.</p>
-</div>
-<div class='tags'>
-  <h3>Parameters:</h3>
-  <ul class='param'>
-    <li>
-      <span class='name'>func</span>
-      <span class='type'>
-        (
-          <tt>Function</tt>
-        )
-      </span>
-    </li>
-  </ul>
-</div>
-  </div>
 </div>
     </div>
     <div id='footer'>
-  April 08, 14 06:02:33 by
+  April 18, 14 16:07:41 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
