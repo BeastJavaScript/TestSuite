@@ -456,7 +456,7 @@
             this.base();
           } catch (_error) {
             e = _error;
-            TestCase.result.push(new TestResult(TestCase.currentClassName, "base", "Exception " + e.constructor.name + ": " + e.message, TestCase.failed, TestCase.testAssert++));
+            TestCase.result.push(new TestResult(TestCase.currentClassName, "base", "Exception " + e.constructor.name + ": " + e.message, TestCase.failed, 0));
             break;
           }
           try {
@@ -467,7 +467,11 @@
             }
           } catch (_error) {
             e = _error;
-            TestCase.result.push(new TestResult(TestCase.currentClassName, TestCase.currentName, "Exception " + e.constructor.name + ": " + e.message, TestCase.failed, TestCase.testAssert++));
+            if (e instanceof RangeError) {
+              TestCase.result.push(new TestResult(TestCase.currentClassName, TestCase.currentName, "Exception " + e.constructor.name + ": " + e.message, TestCase.failed, TestCase.testAssert));
+            } else {
+              throw e;
+            }
             continue;
           }
         }

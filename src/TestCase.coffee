@@ -54,7 +54,7 @@ class TestCase extends TestComponent
         try
           @base()
         catch e
-          TestCase.result.push new TestResult(TestCase.currentClassName,"base","Exception #{e.constructor.name}: #{e.message}",TestCase.failed,TestCase.testAssert++)
+          TestCase.result.push new TestResult(TestCase.currentClassName,"base","Exception #{e.constructor.name}: #{e.message}",TestCase.failed,0)
           break;
 
         try
@@ -63,7 +63,10 @@ class TestCase extends TestComponent
           else
             @[property].call(@,@base())
         catch e
-          TestCase.result.push new TestResult(TestCase.currentClassName,TestCase.currentName,"Exception #{e.constructor.name}: #{e.message}",TestCase.failed,TestCase.testAssert++)
+          if e instanceof RangeError
+            TestCase.result.push new TestResult(TestCase.currentClassName,TestCase.currentName,"Exception #{e.constructor.name}: #{e.message}",TestCase.failed,TestCase.testAssert)
+          else
+            throw e
           continue
 
     TestCase.end_t=Date.now()
